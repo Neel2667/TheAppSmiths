@@ -247,11 +247,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Portfolio Item 1: SafePass -->
                     <div class="glass-card overflow-hidden">
-                        <img src="TheAppSmiths/SafePass.png" alt="SafePass App" class="w-full h-48 object-cover">
+                        <img src="https://i.ibb.co/dG7pS1G/safepass-feature-graphic.jpg" alt="SafePass App" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-white mb-2">SafePass - Password Manager</h3>
                             <p class="text-gray-400 text-sm mb-4">A secure, offline-first password manager that keeps your sensitive data encrypted and accessible only to you.</p>
-                            <a href="#" id="safepass-policy-link" class="text-[#64ffda] hover:underline cursor-pointer">View Privacy Policy →</a>
+                            <a href="privacy.html" target="_blank" class="text-[#64ffda] hover:underline">View Privacy Policy →</a>
                         </div>
                     </div>
                     <!-- Portfolio Item 2 -->
@@ -338,37 +338,6 @@
         </div>
     </div>
     
-    <!-- SafePass App Privacy Policy Modal -->
-    <div id="safepass-privacy-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button id="safepass-close-modal-btn" class="absolute top-4 right-6 text-2xl font-bold text-gray-400 hover:text-white">&times;</button>
-            <h2 class="text-2xl font-bold text-white mb-6">Privacy Policy for SafePass</h2>
-            <div class="text-gray-400 space-y-4 text-sm">
-                <p><strong>Effective Date: September 27, 2025</strong></p>
-                <p>This Privacy Policy applies to the SafePass mobile application (the "App") developed by The AppSmiths.</p>
-                
-                <h3 class="text-lg font-semibold text-white mt-4">1. Data Collection and Usage</h3>
-                <p><strong>SafePass is an offline application.</strong> We do not collect, store, transmit, or have access to any of your personal data, including your master password or any information you store within the app (such as usernames, passwords, notes, etc.). All your data is stored locally and encrypted on your device and is never sent to our servers or any third party.</p>
-                
-                <h3 class="text-lg font-semibold text-white mt-4">2. Permissions</h3>
-                <p>The SafePass app does not require any special permissions to function, such as access to your contacts, location, or network. The app only requires access to your device's local storage to save your encrypted data file.</p>
-                
-                <h3 class="text-lg font-semibold text-white mt-4">3. Data Security</h3>
-                <p>We take your security seriously. All data you enter into SafePass is encrypted using industry-standard AES-256 encryption before it is saved to your device. Your Master Password is the key to decrypt this data and is never stored by the app. It is your responsibility to keep your Master Password safe.</p>
-
-                <h3 class="text-lg font-semibold text-white mt-4">4. Children's Privacy</h3>
-                <p>SafePass does not knowingly collect any personal information from children under the age of 13. Since the app operates entirely offline, it is impossible for us to collect such data.</p>
-
-                <h3 class="text-lg font-semibold text-white mt-4">5. Changes to This Privacy Policy</h3>
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy within the app and on our website. You are advised to review this Privacy Policy periodically for any changes.</p>
-
-                <h3 class="text-lg font-semibold text-white mt-4">6. Contact Us</h3>
-                <p>If you have any questions about this Privacy Policy for the SafePass app, you can contact us at: <a href="mailto:nmp2667@gmail.com" class="text-[#64ffda]">nmp2667@gmail.com</a></p>
-            </div>
-        </div>
-    </div>
-
-
     <!-- JavaScript for Interactivity -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -458,9 +427,6 @@
 
             // Setup Website Privacy Policy Modal
             setupModal('privacy-modal', 'privacy-policy-link', 'close-modal-btn');
-            
-            // Setup SafePass Privacy Policy Modal
-            setupModal('safepass-privacy-modal', 'safepass-policy-link', 'safepass-close-modal-btn');
 
             // Close modals with Escape key
             document.addEventListener('keydown', (e) => {
