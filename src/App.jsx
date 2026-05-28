@@ -39,7 +39,7 @@ export default function App() {
       title: "SafePass",
       category: "Security Platform",
       gradient: "from-purple-500 to-pink-700",
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.yourcompany.safepass",
+      playStoreUrl: "https://play.google.com/apps/testing/com.appsmiths.safepass",
       privacyUrl: "safepass-privacy.html",
       logo: "safepass/logo.png",
       description: "A fully offline, zero-knowledge password manager featuring AES-256 encryption, Biometric authentication, and seamless encrypted backups. Built with a cinematic, modern dark UI inspired by leading security platforms. SafePass operates entirely locally with no internet permission required, no sign-ups, and auto-clearing clipboard features ensuring your data never leaves your device.",
