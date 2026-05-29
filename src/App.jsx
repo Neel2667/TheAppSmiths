@@ -735,6 +735,29 @@ export default function App() {
                   <p className="text-zinc-300 leading-relaxed text-lg">
                     {selectedProject.description || "Premium scalable product designed with futuristic UI and cinematic interactions."}
                   </p>
+
+                  <div className="pt-4 flex flex-wrap gap-4">
+                    {selectedProject.playStoreUrl && (
+                      <a
+                        href={selectedProject.playStoreUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-transform"
+                      >
+                        View on Play Store ↗
+                      </a>
+                    )}
+                    {selectedProject.privacyUrl && (
+                      <a
+                        href={selectedProject.privacyUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors"
+                      >
+                        Privacy Policy
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {selectedProject.features && (
