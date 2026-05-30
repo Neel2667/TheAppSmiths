@@ -5,16 +5,9 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [mailtoLink, setMailtoLink] = useState('');
+  const [submitStatus, setSubmitStatus] = useState('idle'); // idle, sending, success, error
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const name = data.get('name');
-    const email = data.get('email');
-    const whatsapp = data.get('whatsapp');
-    const businessName = data.get('businessName') || 'N/A';
-    const requirement = data.get('requirement');
-
+  const triggerMailtoFallback = (name, email, whatsapp, businessName, requirement) => {
     const emailSubject = encodeURIComponent(`Project Consultation Request - ${businessName}`);
     const emailBody = encodeURIComponent(
       `Hello The Appsmiths,\n\n` +
@@ -33,9 +26,57 @@ export default function App() {
 
     const link = `mailto:nmp2667@gmail.com?subject=${emailSubject}&body=${emailBody}`;
     setMailtoLink(link);
+    setSubmitStatus('success');
     setFormSubmitted(true);
-    
     window.location.href = link;
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const name = data.get('name');
+    const email = data.get('email');
+    const whatsapp = data.get('whatsapp');
+    const businessName = data.get('businessName') || 'N/A';
+    const requirement = data.get('requirement');
+
+    // Retrieve Web3Forms key from environment variables (or fall back to mailto if empty)
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "";
+
+    if (accessKey && accessKey !== "") {
+      setSubmitStatus('sending');
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: name,
+            email: email,
+            subject: `New Request from ${businessName} (${name})`,
+            message: `Requirements details:\n\nName: ${name}\nEmail: ${email}\nWhatsApp/Phone: ${whatsapp}\nBusiness: ${businessName}\n\nSoftware Requirements:\n${requirement}`,
+            from_name: "The Appsmiths Portfolio"
+          })
+        });
+        const result = await response.json();
+        if (result.success) {
+          setSubmitStatus('success');
+          setFormSubmitted(true);
+        } else {
+          setSubmitStatus('error');
+          triggerMailtoFallback(name, email, whatsapp, businessName, requirement);
+        }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        setSubmitStatus('error');
+        triggerMailtoFallback(name, email, whatsapp, businessName, requirement);
+      }
+    } else {
+      triggerMailtoFallback(name, email, whatsapp, businessName, requirement);
+    }
   };
 
   const services = [
@@ -715,9 +756,17 @@ export default function App() {
 
                   <button 
                     type="submit"
-                    className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 text-sm cursor-pointer"
+                    disabled={submitStatus === 'sending'}
+                    className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 text-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Request Free Consultation ↗
+                    {submitStatus === 'sending' ? (
+                      <span className="flex items-center gap-2">
+                        <span className="w-4.5 h-4.5 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                        Sending Request...
+                      </span>
+                    ) : (
+                      "Request Free Consultation ↗"
+                    )}
                   </button>
                 </form>
               )}
