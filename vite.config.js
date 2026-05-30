@@ -6,4 +6,12 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   base: '/',
   plugins: [tailwindcss(), react()],
+  server: {
+    proxy: {
+      '/rentflow': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
+  },
 })

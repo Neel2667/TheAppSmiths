@@ -34,6 +34,19 @@ export default function App() {
       gradient: "from-cyan-500 to-blue-700",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.yourcompany.rentflow",
       privacyUrl: "privacy-policy.html",
+      logo: "rentflow_logo.png",
+      demoUrl: "/rentflow/",
+      description: "A premium, cloud-based property management platform designed for modern landlords and property managers. RentFlow streamlines rent collection, lease agreements, tenant onboarding, maintenance requests, and financial reporting with a cinematic, highly interactive dashboard.",
+      features: [
+        "Interactive Dashboard",
+        "Rent Collection & Tracking",
+        "Property Portfolio Management",
+        "Tenant Portal & Communication",
+        "Maintenance Ticket Tracking",
+        "Lease & Contract Management",
+        "Financial Reports & Analytics",
+        "Settings & Notifications"
+      ],
     },
     {
       title: "SafePass",
@@ -737,12 +750,26 @@ export default function App() {
                   </p>
 
                   <div className="pt-4 flex flex-wrap gap-4">
+                    {selectedProject.demoUrl && (
+                      <a
+                        href={selectedProject.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-transform"
+                      >
+                        View Live Demo ↗
+                      </a>
+                    )}
                     {selectedProject.playStoreUrl && (
                       <a
                         href={selectedProject.playStoreUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-transform"
+                        className={`px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 ${
+                          selectedProject.demoUrl
+                            ? "bg-white/5 border border-white/10 text-white hover:bg-white/10"
+                            : "bg-gradient-to-r from-cyan-400 to-blue-500 text-black shadow-lg shadow-cyan-500/20"
+                        }`}
                       >
                         View on Play Store ↗
                       </a>
