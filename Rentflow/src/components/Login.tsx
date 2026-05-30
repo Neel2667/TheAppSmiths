@@ -57,10 +57,19 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
           </button>
         </form>
 
-        <div className="mt-8 pt-6 border-t border-outline-variant/20 text-center">
+        <div className="mt-8 pt-6 border-t border-outline-variant/20 text-center space-y-4">
           <p className="text-sm text-on-surface-variant">
             This is a demo application. Click 'Sign In' to enter.
           </p>
+          <div className="p-4 bg-surface-container rounded-xl text-left border border-outline-variant/30 shadow-sm">
+            <span className="text-[10px] font-bold text-secondary uppercase tracking-wider block mb-1">Built by The Appsmiths</span>
+            <p className="text-xs text-on-surface-variant leading-relaxed">
+              We design and build custom business software, mobile apps, and SaaS dashboards. 
+              <a href="https://theappsmiths.qzz.io/#contact" target="_blank" rel="noreferrer" className="text-secondary hover:underline font-semibold ml-1 inline-flex items-center gap-0.5">
+                Let's discuss your project ↗
+              </a>
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>

@@ -71,6 +71,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isO
           ))}
         </nav>
 
+        {/* Promotional Box for The Appsmiths */}
+        <div className="mx-4 my-3 p-4 rounded-xl bg-surface-container border border-outline-variant/30 space-y-2 text-left shadow-sm">
+          <div className="text-[10px] font-bold text-secondary uppercase tracking-wider block mb-1">Built by The Appsmiths</div>
+          <p className="text-[11px] text-on-surface-variant leading-relaxed">
+            Looking for a custom Android app, web portal, or automation platform? Let's build it!
+          </p>
+          <a 
+            href="https://theappsmiths.qzz.io/#contact" 
+            target="_blank" 
+            rel="noreferrer"
+            className="inline-flex items-center gap-0.5 text-xs text-secondary hover:underline font-bold"
+          >
+            Hire The Appsmiths ↗
+          </a>
+        </div>
+
         <div className="p-4 border-t border-outline-variant/30">
           <button 
             onClick={() => onChangeView('login')}
