@@ -3,6 +3,40 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [mailtoLink, setMailtoLink] = useState('');
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const name = data.get('name');
+    const email = data.get('email');
+    const whatsapp = data.get('whatsapp');
+    const businessName = data.get('businessName') || 'N/A';
+    const requirement = data.get('requirement');
+
+    const emailSubject = encodeURIComponent(`Project Consultation Request - ${businessName}`);
+    const emailBody = encodeURIComponent(
+      `Hello The Appsmiths,\n\n` +
+      `I would like to request a consultation for custom software development.\n\n` +
+      `--- Contact Details ---\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `WhatsApp/Phone: ${whatsapp}\n` +
+      `Business: ${businessName}\n\n` +
+      `--- Requirement ---\n` +
+      `${requirement}\n\n` +
+      `Please let me know when we can connect.\n\n` +
+      `Regards,\n` +
+      `${name}`
+    );
+
+    const link = `mailto:nmp2667@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    setMailtoLink(link);
+    setFormSubmitted(true);
+    
+    window.location.href = link;
+  };
 
   const services = [
     {
@@ -338,6 +372,42 @@ export default function App() {
         </div>
       </section>
 
+      {/* Custom Development CTA Callout Banner */}
+      <section className="py-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-[2.5rem] border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 via-blue-500/5 to-purple-500/10 backdrop-blur-xl p-8 md:p-12 overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 animate-fade-in">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 blur-[80px] rounded-full -z-10" />
+            <div className="space-y-3 max-w-3xl text-left">
+              <span className="text-cyan-400 font-bold tracking-wider text-xs uppercase bg-cyan-400/10 px-3 py-1 rounded-full">Custom Development</span>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white mt-2">
+                Need a custom Android or Web App for your business?
+              </h2>
+              <p className="text-zinc-300 leading-relaxed">
+                The Appsmiths builds tailor-made mobile apps, interactive dashboards, automation systems, and SaaS platforms that grow your revenue.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full lg:w-auto">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#contact"
+                className="px-6 py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold shadow-lg shadow-cyan-500/20 text-center text-sm"
+              >
+                Book a Free Consultation
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#contact"
+                className="px-6 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-bold hover:bg-white/10 transition-colors text-center text-sm"
+              >
+                Request a Custom Quote
+              </motion.a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section id="services" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
@@ -512,47 +582,148 @@ export default function App() {
         </div>
       </motion.section>
 
-      {/* CTA */}
+      {/* Contact Section */}
       <section id="contact" className="py-24 px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="max-w-6xl mx-auto rounded-[3rem] border border-white/10 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-purple-500/20 backdrop-blur-2xl p-10 md:p-16 text-center relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_40%)] animate-pulse" />
+        <div className="max-w-6xl mx-auto rounded-[3rem] border border-white/10 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-purple-500/10 backdrop-blur-2xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_50%)] pointer-events-none" />
 
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-7xl font-black leading-tight mb-8">
-              Let’s Build Something Incredible.
-            </h2>
+          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-start">
+            {/* Left Column: Pitch & Trust Signals */}
+            <div className="space-y-8 text-left">
+              <div>
+                <span className="text-cyan-400 font-bold tracking-wider text-xs uppercase bg-cyan-400/10 px-3 py-1 rounded-full">Get In Touch</span>
+                <h2 className="text-4xl md:text-5xl font-black leading-tight mt-4 text-white">
+                  Let’s Build Something Incredible.
+                </h2>
+              </div>
+              
+              <p className="text-zinc-300 text-lg leading-relaxed">
+                Have a project in mind? Looking to automate your business operations, launch an Android application, or build a bespoke SaaS product? We translate your business needs into high-performance custom software.
+              </p>
 
-            <p className="text-zinc-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-              Need an app, AI system, automation platform, or futuristic
-              business product?
-            </p>
+              <div className="space-y-4 pt-4 border-t border-white/10">
+                <h3 className="font-bold text-white text-lg">Why choose The Appsmiths?</h3>
+                <ul className="space-y-3 text-zinc-400 text-sm">
+                  <li className="flex items-center gap-3">
+                    <span className="text-cyan-400 text-lg">✓</span> Fully custom code, tailormade to your specific business requirements
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-cyan-400 text-lg">✓</span> Beautiful cinematic user interfaces built for high retention
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-cyan-400 text-lg">✓</span> Scalable Android apps, responsive web apps, and automated workflows
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-cyan-400 text-lg">✓</span> Dedicated support, clean architecture, and rapid deployment
+                  </li>
+                </ul>
+              </div>
 
-            <motion.a
-              animate={{
-                y: [0, -4, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-              }}
-              whileHover={{
-                scale: 1.08,
-                y: -5,
-              }}
-              whileTap={{ scale: 0.95 }}
-              href="mailto:nmp2667@gmail.com"
-              className="inline-block px-8 py-4 rounded-2xl bg-white text-black font-bold"
-            >
-              Contact Us
-            </motion.a>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a href="mailto:nmp2667@gmail.com" className="text-sm font-semibold text-zinc-300 hover:text-cyan-400 transition flex items-center gap-2">
+                  ✉️ nmp2667@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Form */}
+            <div className="bg-black/40 border border-white/10 p-6 md:p-8 rounded-2xl text-left space-y-6">
+              {formSubmitted ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="py-12 text-center space-y-4"
+                >
+                  <div className="w-16 h-16 bg-cyan-400/10 border border-cyan-400/30 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    ✨
+                  </div>
+                  <h3 className="text-2xl font-black text-white">Quote Request Prepared!</h3>
+                  <p className="text-zinc-300 text-sm max-w-sm mx-auto leading-relaxed">
+                    Thank you! We have compiled your requirements. If your email application didn't open automatically, please click below to send us your request.
+                  </p>
+                  <a 
+                    href={mailtoLink}
+                    className="inline-block px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold rounded-xl shadow-lg shadow-cyan-500/20 hover:scale-105 transition-transform"
+                  >
+                    Send Email Directly
+                  </a>
+                  <button 
+                    onClick={() => setFormSubmitted(false)}
+                    className="block text-zinc-500 hover:text-white text-xs underline mx-auto pt-4"
+                  >
+                    Submit another response
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-4">
+                  <h3 className="text-xl font-bold text-white mb-4">Request a Consultation</h3>
+                  
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Name</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      required
+                      placeholder="e.g. John Doe"
+                      className="w-full px-4 py-3 bg-white/5 rounded-xl border border-white/10 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all text-white text-sm"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Email</label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        required
+                        placeholder="john@example.com"
+                        className="w-full px-4 py-3 bg-white/5 rounded-xl border border-white/10 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all text-white text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">WhatsApp / Phone</label>
+                      <input 
+                        type="tel" 
+                        name="whatsapp"
+                        required
+                        placeholder="+1 (555) 000-0000"
+                        className="w-full px-4 py-3 bg-white/5 rounded-xl border border-white/10 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all text-white text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Business Name</label>
+                    <input 
+                      type="text" 
+                      name="businessName"
+                      placeholder="e.g. Acme Corp"
+                      className="w-full px-4 py-3 bg-white/5 rounded-xl border border-white/10 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all text-white text-sm"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">What software do you need?</label>
+                    <textarea 
+                      name="requirement"
+                      required
+                      rows="4"
+                      placeholder="Describe your requirements (e.g. custom Android app for logistics, rental booking website, etc.)"
+                      className="w-full px-4 py-3 bg-white/5 rounded-xl border border-white/10 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all text-white text-sm resize-none"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-black font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 text-sm cursor-pointer"
+                  >
+                    Request Free Consultation ↗
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
-        </motion.div>
+        </div>
       </section>
             {/* Footer */}
       <footer className="relative border-t border-white/10 py-16 px-6 overflow-hidden">
@@ -748,6 +919,25 @@ export default function App() {
                   <p className="text-zinc-300 leading-relaxed text-lg">
                     {selectedProject.description || "Premium scalable product designed with futuristic UI and cinematic interactions."}
                   </p>
+
+                  {selectedProject.title === "RentFlow" && (
+                    <div className="p-6 rounded-2xl bg-cyan-950/20 border border-cyan-500/20 space-y-3 text-left">
+                      <h4 className="text-lg font-bold text-cyan-400">Built by The Appsmiths</h4>
+                      <p className="text-zinc-300 text-sm leading-relaxed">
+                        RentFlow is a modern property management platform designed to simplify tenant management, rent tracking, and maintenance requests.
+                      </p>
+                      <p className="text-zinc-300 text-sm leading-relaxed">
+                        <strong>Looking for software tailored to your business?</strong> The Appsmiths builds custom Android apps, web applications, business management systems, and automation tools for businesses of all sizes.
+                      </p>
+                      <a 
+                        href="#contact" 
+                        onClick={() => setSelectedProject(null)} 
+                        className="inline-flex items-center gap-1 text-sm text-cyan-300 hover:text-cyan-400 transition font-semibold"
+                      >
+                        Request a custom version for your business →
+                      </a>
+                    </div>
+                  )}
 
                   <div className="pt-4 flex flex-wrap gap-4">
                     {selectedProject.demoUrl && (
