@@ -1,0 +1,103 @@
+{
+  "restaurantName": "Mario's Italian Restaurant",
+  "tagline": "Authentic Wood-Fired Pizza & Handmade Pasta",
+  "phone": "+1 (555) 762-4321",
+  "whatsapp": "+15557624321",
+  "address": "123 Italian Way, Gourmet District, NY 10001",
+  "mapsLink": "https://maps.google.com",
+  "aboutText": "Family-owned since 1994, Mario's brings the rich culinary traditions of Rome and Naples to your table. We source organic, local ingredients and imported Italian flour to create our signature slow-rise pizza dough and handmade pasta daily.",
+  "hours": {
+    "Monday - Thursday": "12:00 PM - 10:00 PM",
+    "Friday - Saturday": "12:00 PM - 11:00 PM",
+    "Sunday": "1:00 PM - 9:30 PM"
+  },
+  "menu": [
+    {
+      "category": "Appetizers",
+      "items": [
+        {
+          "name": "Bruschetta Classica",
+          "price": "8.95",
+          "desc": "Toasted Italian bread rubbed with garlic, topped with diced vine-ripened tomatoes, fresh basil, and extra virgin olive oil."
+        },
+        {
+          "name": "Calamari Fritti",
+          "price": "12.50",
+          "desc": "Crispy, golden-fried baby squid served with fresh lemon wedges and our house spicy marinara dipping sauce."
+        },
+        {
+          "name": "Garlic Bread with Cheese",
+          "price": "6.50",
+          "desc": "Baked crusty Italian bread brushed with garlic butter, fresh parsley, and melted whole-milk mozzarella."
+        }
+      ]
+    },
+    {
+      "category": "Handmade Pasta",
+      "items": [
+        {
+          "name": "Lasagna Al Forno",
+          "price": "18.50",
+          "desc": "Baked layers of fresh pasta sheet, slow-simmered beef bolognese sauce, creamy bechamel, and melted parmigiano-reggiano."
+        },
+        {
+          "name": "Fettuccine Alfredo with Chicken",
+          "price": "19.95",
+          "desc": "Hand-cut egg fettuccine tossed in a rich, velvety butter and parmesan cream sauce, topped with grilled chicken breast."
+        },
+        {
+          "name": "Spaghetti Carbonara",
+          "price": "17.50",
+          "desc": "Classic Roman style spaghetti tossed with crispy guanciale, pasteurized egg yolks, cracked black pepper, and pecorino romano."
+        }
+      ]
+    },
+    {
+      "category": "Wood-Fired Pizza",
+      "items": [
+        {
+          "name": "Pizza Margherita",
+          "price": "14.95",
+          "desc": "San Marzano tomato base, fresh buffalo mozzarella, fresh basil leaves, and a drizzle of organic olive oil on slow-rise crust."
+        },
+        {
+          "name": "Pizza Diavola",
+          "price": "16.95",
+          "desc": "Tomato sauce, spicy Italian salami, nduja, hot chili oil, mozzarella, and black olives."
+        }
+      ]
+    },
+    {
+      "category": "Desserts",
+      "items": [
+        {
+          "name": "Tiramisu della Casa",
+          "price": "7.50",
+          "desc": "Espresso-soaked ladyfinger cookies layered with rich whipped mascarpone cream and dusted with fine cocoa powder."
+        },
+        {
+          "name": "Sicilian Cannoli",
+          "price": "6.00",
+          "desc": "Crispy pastry tube shell filled with sweet sheep's milk ricotta cheese, chocolate chips, and candied orange peel."
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "author": "David K.",
+      "rating": 5,
+      "text": "The wood-fired Margherita pizza is exactly like the ones I had in Naples. Mario's is an absolute gem, outstanding service!"
+    },
+    {
+      "author": "Sophia R.",
+      "rating": 5,
+      "text": "Handmade pasta is out of this world. The lasagna is rich, layered, and baked to perfection. 5 stars all the way."
+    },
+    {
+      "author": "Mark M.",
+      "rating": 5,
+      "text": "Incredible cozy atmosphere, friendly staff, and mouthwatering tiramisu. Tastes like home-cooked Italian comfort food."
+    }
+  ]
+}

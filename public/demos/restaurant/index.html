@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario's Italian Restaurant</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Floating Background Elements for Premium Tech Vibe -->
+  <div class="glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span id="nav-title">Mario's</span>
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#menu-section">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Hours & Location</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" onclick="toggleCart()">
+          🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Authentic Italian Cuisine</span>
+      <h1 id="hero-title" class="hero-heading">Mario's Italian Restaurant</h1>
+      <p id="hero-tagline" class="hero-subheading">Authentic Wood-Fired Pizza & Handmade Pasta</p>
+      <div class="hero-btns">
+        <a href="#menu-section" class="btn btn-primary">Explore Our Menu</a>
+        <a href="#contact" class="btn btn-secondary">Hours & Location</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <span class="section-badge">Our Legacy</span>
+        <h2>Handcrafted With Passion</h2>
+        <p id="about-content">Family-owned since 1994, Mario's brings the rich culinary traditions of Rome and Naples to your table. We source organic, local ingredients and imported Italian flour to create our signature slow-rise pizza dough and handmade pasta daily.</p>
+        <div class="legacy-stats">
+          <div class="stat-card">
+            <h3>30+</h3>
+            <p>Years of Cooking</p>
+          </div>
+          <div class="stat-card">
+            <h3>100%</h3>
+            <p>Handmade Pasta</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-quote">
+        <blockquote>
+          "Non si pensa bene, non si ama bene, se non si ha mangiato bene."
+          <cite>— One cannot think well, love well, sleep well, if one has not dined well.</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section -->
+  <section id="menu-section" class="menu-section">
+    <div class="container">
+      <div class="text-center mb-12">
+        <span class="section-badge">From Our Kitchen</span>
+        <h2>Explore Our Digital Menu</h2>
+        <p class="section-desc">Click items below to add them to your order bag and send a direct booking/order draft straight to our WhatsApp.</p>
+        
+        <!-- Category Navigation Tabs -->
+        <div class="category-tabs" id="category-tabs">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu-grid" id="menu-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="reviews border-top">
+    <div class="container">
+      <div class="text-center mb-12">
+        <span class="section-badge">Social Proof</span>
+        <h2>Loved By Locals</h2>
+        <p class="section-desc">Here's what our customers are saying on Google Maps.</p>
+      </div>
+      
+      <div class="reviews-grid" id="reviews-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Details Section -->
+  <section id="contact" class="contact border-top">
+    <div class="contact-container">
+      <!-- Location & Info -->
+      <div class="contact-info">
+        <span class="section-badge">Visit Us</span>
+        <h2>Hours & Location</h2>
+        <p id="contact-address" class="address-text">123 Italian Way, Gourmet District, NY 10001</p>
+        
+        <div class="hours-list" id="hours-list">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="contact-buttons">
+          <a id="call-link" href="#" class="contact-btn">📞 Call Restaurant</a>
+          <a id="directions-link" href="#" target="_blank" class="contact-btn">🗺️ Get Directions</a>
+        </div>
+      </div>
+
+      <!-- Quick Consultation Form for Custom Site (Client Acquisition Hook) -->
+      <div class="demo-notice-card">
+        <div class="notice-badge">Interactive Demo</div>
+        <h3>Like this website for your restaurant?</h3>
+        <p>This is a live preview built by **The Appsmiths**. We design and build high-performance custom websites and mobile apps for local small businesses.</p>
+        
+        <div class="benefits-checklist">
+          <div class="benefit-item">✓ 100% custom menu (No commissions)</div>
+          <div class="benefit-item">✓ Blazing fast loading speeds</div>
+          <div class="benefit-item">✓ Fully integrated WhatsApp Order Dispatch</div>
+        </div>
+
+        <a href="https://theappsmiths.qzz.io/#contact" target="_blank" class="btn btn-primary w-full text-center">
+          Get a Custom Site Like This ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p id="footer-copy">© 2026 Mario's Italian Restaurant. All rights reserved.</p>
+      <div class="trust-badge">
+        <span>Bespoke Site Crafted by </span>
+        <a href="https://theappsmiths.qzz.io" target="_blank" class="appsmiths-link">The Appsmiths ✨</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Cart Sidebar Panel -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+      <h3>Your Order Bag</h3>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    
+    <div class="cart-items" id="cart-items">
+      <!-- Dynamically populated or Empty State -->
+      <div class="empty-state">Your order bag is empty. Explore our menu to add mouthwatering dishes!</div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total Estimate:</span>
+        <span id="cart-total-price" class="total-price">$0.00</span>
+      </div>
+      
+      <!-- WhatsApp order dispatch button -->
+      <button class="send-order-btn" onclick="submitWhatsAppOrder()">
+        Send Order via WhatsApp ↗
+      </button>
+      <p class="order-notice">This drafts a direct text order to the restaurant's WhatsApp. No commission fees.</p>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="./script.js"></script>
+</body>
+</html>
