@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario's | Cleveland, NC</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Premium Stylesheet -->
+  <link rel="stylesheet" href="./style.css?v=2">
+</head>
+<body>
+
+  <!-- Floating Background Ambient Elements -->
+  <div class="glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" id="brand-name">
+        Mario's <span>Restaurant</span>
+      </a>
+      <nav>
+        <a href="#story">Our Story</a>
+        <a href="#menu">Explore Menu</a>
+        <a href="#reserve">Reserve Table</a>
+        <a href="#location">Find Us</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" onclick="toggleCart()">
+          <span>🛒</span> Bag
+          <span class="cart-badge cart-count-badge">0</span>
+        </button>
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-badge">Local Cornerstone • Cleveland, NC</span>
+          <h1 class="hero-heading" id="hero-heading">Mario's</h1>
+          <p class="hero-subheading" id="hero-tagline">Authentic Italian Classics, Philly Cheesesteaks & Homestyle Comfort Dinners</p>
+          <div class="hero-btns">
+            <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+            <a href="#reserve" class="btn btn-secondary">Reserve Seating</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Mario's Restaurant Interior">
+          <div class="hero-overlay-tag">
+            <h4>Welcome to Mario's</h4>
+            <p>Cleveland, North Carolina</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Features Grid -->
+    <section class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🏡</div>
+        <h3>Cleveland Cornerstone</h3>
+        <p>A family-owned local diner where you are treated like one of our own.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🥩</div>
+        <h3>Philly Cheesesteaks</h3>
+        <p>Shaved steak or chicken sautéed with peppers, onions & melted cheese on hoagie bread.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🍝</div>
+        <h3>Generous Portions</h3>
+        <p>Hearty, homestyle Italian classics cooked with passion and care.</p>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="story-section">
+      <div class="story-container">
+        <!-- Story Text -->
+        <div class="story-text reveal">
+          <span class="section-badge">Our Legacy</span>
+          <h2>Homestyle Cooking With Italian Heart</h2>
+          <p id="about-description">Family-owned and operated in Cleveland, NC, Mario's is a cornerstone of the local community. We pride ourselves on serving generous portions of homemade Italian specialties, classic Philly cheesesteaks, Greek gyros and souvlaki, and homestyle comfort dinners. Whether you're dining in our cozy dining room or ordering takeout for the family, you're treated like one of our own.</p>
+          
+          <div class="quote-block">
+            "Good food is the foundation of genuine happiness."
+            <span>— The Mario's Family Philosophy</span>
+          </div>
+        </div>
+        
+        <!-- Image Gallery Collage -->
+        <div class="story-gallery reveal">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Cozy Dining Room" class="gallery-img span-2">
+          <img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=400&q=80" alt="Fresh Baked Lasagna" class="gallery-img">
+          <img src="https://images.unsplash.com/photo-1626700051175-6518c4793f4f?auto=format&fit=crop&w=400&q=80" alt="Traditional Greek Gyro Wrap" class="gallery-img">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Menu Explorer Section -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">From Our Kitchen</span>
+        <h2>Explore Our Menu</h2>
+        <p>Order takeout directly using our WhatsApp Bag cart below, with zero commissions and direct restaurant checkout.</p>
+      </div>
+      
+      <!-- Category Tabs Navigator -->
+      <div class="category-tabs reveal" id="category-tabs">
+        <!-- Loaded dynamically -->
+      </div>
+      
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="menu-grid">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Reservation Planner Section -->
+  <section id="reserve" class="reservation-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">Dining Experience</span>
+        <h2>Bespoke Seating Planner</h2>
+        <p>Customize your visit. Select a dining atmosphere zone on the map, schedule your slot, and draft your request.</p>
+      </div>
+      
+      <div class="reservation-container">
+        <!-- Seating Selector Map -->
+        <div class="floorplan-card reveal">
+          <div class="floorplan-title">
+            <h3>1. Select Dining Zone</h3>
+            <p>Click a zone card below to choose your seating atmosphere.</p>
+          </div>
+          
+          <!-- Seating Zone Selectors -->
+          <div class="seating-layout">
+            <div class="zone-selector active" data-zone="Cozy Candlelit Alcove" data-class="alcove">
+              <span class="zone-dot"></span>
+              <span class="zone-icon">🕯️</span>
+              <div class="zone-details">
+                <div class="zone-name">Cozy Candlelit Alcove</div>
+                <div class="zone-desc">Warm, quiet, candlelit booths perfect for couples or dates.</div>
+              </div>
+            </div>
+            
+            <div class="zone-selector" data-zone="Main Dining Room" data-class="hall">
+              <span class="zone-dot"></span>
+              <span class="zone-icon">🎻</span>
+              <div class="zone-details">
+                <div class="zone-name">Main Dining Room</div>
+                <div class="zone-desc">Near the center area, ideal for lively family gatherings.</div>
+              </div>
+            </div>
+            
+            <div class="zone-selector" data-zone="Garden Patio" data-class="patio">
+              <span class="zone-dot"></span>
+              <span class="zone-icon">🌿</span>
+              <div class="zone-details">
+                <div class="zone-name">Garden Patio</div>
+                <div class="zone-desc">Open-air fresh outdoor tables under green planters.</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Seating Floor Plan Visual Preview -->
+          <div class="floor-preview-canvas">
+            <div class="preview-grid">
+              <div class="preview-table alcove highlight">Booth A</div>
+              <div class="preview-table alcove highlight">Booth B</div>
+              <div class="preview-table hall">Table 1</div>
+              <div class="preview-table hall">Table 2</div>
+              <div class="preview-table hall">Table 3</div>
+              <div class="preview-table hall">Table 4</div>
+              <div class="preview-table patio">Patio 1</div>
+              <div class="preview-table patio">Patio 2</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reservation Form -->
+        <div class="reservation-form-card reveal">
+          <div class="form-title">
+            <h3>2. Booking Details</h3>
+            <p>Send a direct reservation draft to our WhatsApp line.</p>
+          </div>
+          
+          <form id="reservation-form" onsubmit="submitReservation(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="res-name">Your Name</label>
+                <input type="text" id="res-name" placeholder="e.g. Nilesh" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="res-phone">WhatsApp Number</label>
+                <input type="tel" id="res-phone" placeholder="e.g. (704) 555-0199" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="res-guests">Number of Guests</label>
+                <select id="res-guests">
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4" selected>4 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="8">8+ Guests</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="res-occasion">Special Occasion</label>
+                <select id="res-occasion">
+                  <option value="Casual Dinner" selected>Casual Dining</option>
+                  <option value="Birthday Celebration">Birthday</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="Business Meal">Business Gathering</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="res-date">Date</label>
+                <input type="date" id="res-date" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="res-time">Preferred Time</label>
+                <select id="res-time" required>
+                  <option value="11:30 AM">11:30 AM</option>
+                  <option value="12:30 PM">12:30 PM</option>
+                  <option value="5:30 PM" selected>5:30 PM</option>
+                  <option value="6:30 PM">6:30 PM</option>
+                  <option value="7:30 PM">7:30 PM</option>
+                  <option value="8:30 PM">8:30 PM</option>
+                </select>
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="res-notes">Special Notes / Dietary Requirements</label>
+                <textarea id="res-notes" placeholder="e.g. Need highchair, gluten-free options..."></textarea>
+              </div>
+            </div>
+            
+            <button type="submit" class="submit-reservation-btn full-width" style="width:100%; margin-top:20px;">
+              Request Table via WhatsApp ↗
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section">
+    <div class="section-header reveal container">
+      <span class="section-badge">Social Proof</span>
+      <h2>What Locals Say</h2>
+      <p>Authentic 5-star testimonials from our regulars and local families in Cleveland, NC.</p>
+    </div>
+
+    <!-- Animated Marquee Reviews -->
+    <div class="reviews-marquee-container" id="reviews-grid">
+      <!-- Built dynamically by script.js -->
+    </div>
+  </section>
+
+  <!-- Location & Details Section -->
+  <section id="location" class="location-section">
+    <div class="container">
+      <div class="location-container">
+        <!-- Map Iframe Wrapper -->
+        <div class="map-wrapper reveal">
+          <iframe id="map-iframe" src="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <!-- Info Details Panel -->
+        <div class="info-panel reveal">
+          <span class="section-badge">Visit Us</span>
+          <h2>Hours & Location</h2>
+          <p class="info-address" id="info-address">8850 Statesville Blvd, Cleveland, NC 27013</p>
+          
+          <div class="hours-table" id="hours-table">
+            <!-- Loaded dynamically -->
+          </div>
+          
+          <div class="info-actions">
+            <a id="call-action-btn" href="#" class="btn btn-primary">📞 Call Restaurant</a>
+            <a id="maps-action-btn" href="#" target="_blank" class="btn btn-secondary">🗺️ Get Directions</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Client Acquisition Promotion Badging (The Appsmiths Hook) -->
+      <div class="appsmiths-promo-card reveal">
+        <div class="promo-badge">The Appsmiths Concept Pitch</div>
+        <h3>Take Control of Your Restaurant's Online Ordering</h3>
+        <p>This is a live interactive concept designed specifically for **Mario's Restaurant** by **The Appsmiths**. Most third-party platforms (like your current third-party aggregator) charge up to 30% per order, control your customer data, and display competing restaurants. This site is built to place orders and reservations directly into your hands with <strong>zero commissions</strong>.</p>
+        
+        <div class="promo-features">
+          <div class="promo-feat-item">💸 <strong>0% Commissions:</strong> Keep 100% of your ticket sizes. All orders go straight to your WhatsApp.</div>
+          <div class="promo-feat-item">🗺️ <strong>Own Your Brand:</strong> Replace third-party templates with your own custom domain (e.g. marioscleveland.com).</div>
+          <div class="promo-feat-item">🛋️ <strong>Bespoke Guest Booking:</strong> Let customers choose Cozy, Main Hall, or Patio seating in real-time.</div>
+          <div class="promo-feat-item">⚡ <strong>Lightning Fast:</strong> Optimized for mobile with Google Local SEO so customers nearby find you first.</div>
+        </div>
+        
+        <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+          <a href="mailto:nmp2667@gmail.com?subject=Deploy%20Website%20for%20Mario's%20Restaurant&body=Hi%20The%20Appsmiths,%0D%0A%0D%0AI%20saw%20the%20interactive%20concept%20for%20Mario's%20Restaurant%20and%20would%20like%20to%20discuss%20deploying%20it%20under%20our%20own%20domain.%20Please%20let%20me%20know%20how%20we%20can%20get%20started." class="btn btn-primary promo-btn">
+            Deploy This Website For Mario's ↗
+          </a>
+          <a href="mailto:nmp2667@gmail.com?subject=Inquiry%20from%20Mario's%20Restaurant" class="btn btn-secondary" style="border: 1px solid rgba(223, 184, 118, 0.3); color: var(--accent-gold);">
+            Email The Appsmiths
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo">Mario's <span>Restaurant</span></div>
+      <div class="footer-nav">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#reserve">Reservations</a>
+        <a href="#location">Find Us</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Mario's. All rights reserved.</p>
+      <p class="footer-by">Crafted with precision by <a href="https://theappsmiths.qzz.io" target="_blank">The Appsmiths ✨</a></p>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Sidebar Drawer Panel -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+      <h3>Your Order Bag</h3>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    
+    <div class="cart-items-container" id="cart-items">
+      <!-- Loaded dynamically or Empty state -->
+    </div>
+    
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Items Subtotal</span>
+        <span id="subtotal-price">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Estimated Sales Tax (7.5%)</span>
+        <span id="tax-price">$0.00</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total Estimate</span>
+        <span id="total-price">$0.00</span>
+      </div>
+      
+      <button class="checkout-btn" onclick="submitWhatsAppOrder()">
+        Send Order Request via WhatsApp ↗
+      </button>
+      <p class="checkout-notice">This drafts a direct text order to the restaurant's phone line on WhatsApp. No booking fee.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./data.js?v=2"></script>
+  <script src="./script.js?v=2"></script>
+  <script>
+    // Simple helper to close/toggle nav if needed
+    function toggleMobileMenu() {
+      alert("This is a static portfolio demo. Full navigation options are displayed on desktop.");
+    }
+  </script>
+</body>
+</html>
